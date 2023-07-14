@@ -1,6 +1,6 @@
 # mini-prevalencia
 
-Inspirado no Prevayler 2001-2013,também ACID, grava em memória e em sistema de arquivos a construção transacional de seu modelo POJO, possibilitando que ao reiniciar seu sistema, os objetos 
+Inspirado no Prevayler 2001-2013, também ACID, grava em memória e em sistema de arquivos a construção transacional de seu modelo POJO, possibilitando que ao reiniciar seu sistema, os objetos 
 sejam reconstruídos em memória através da execução de transações serializáveis carregadas do sistema de arquivos. O uso de réplicas secundárias é limitado a leitura, sem gravação.
 O modelo de dados (POJO) e transacional devem ser serializáveis, pois, o funcionamento depende da serialização Java para gravação de arquivos e retornos que protegem o modelo de alteração 
 não transacional. Utilize corretamente serialVersionUID para cada uma das entidades e transações de seu modelo, também utilize backup automatizado por ferramentas especializadas.
