@@ -348,8 +348,7 @@ public class MiniPrevalencia <M extends Serializable> {
 	 * @param tipoRegistro O tipo de registro serializável.
 	 */
 	private MiniPrevalencia(Class<M> tipoRegistro) {
-		this.tipoRegistro = tipoRegistro; 
-		momentoInicializacaoOuUltimaTransacao = System.currentTimeMillis();
+		this.tipoRegistro = tipoRegistro;		
 	}	
 	
 	/**
@@ -699,7 +698,7 @@ public class MiniPrevalencia <M extends Serializable> {
 						sleep(100);
 						Long contadorArquivoAcelerador = (dirAcelerador.list().length > 0) ? converterNomeArquivo(dirAcelerador.listFiles()[0]) : 0L;
 						if (contadorArquivoAcelerador > ultimaTransacaoExecutada) {
-							//Quando ocorre a gravação do arquivo acelerador os arquivos de transações pode ter sido excluídos. Observadores de escravos não recebem aviso...
+							//Quando ocorre a gravação do arquivo acelerador os arquivos de transações podem ter sido excluídos. Observadores de escravos não recebem aviso...
 							carregarDadosDoSistemaDeArquivo();
 						}
 						Long contadorTransacoesArquivo = (dirReplica.list().length > 0) ? converterNomeArquivo(dirReplica.listFiles()[0]) : 0L;
@@ -733,6 +732,7 @@ public class MiniPrevalencia <M extends Serializable> {
 	private synchronized void carregarDadosDoSistemaDeArquivo() throws GravacaoEmDiscoException, LeituraEmDiscoException, ExecucaoTransacaoException {		
 		System.out.println("Iniciando carregamento...");
 		inicializando = true;
+		momentoInicializacaoOuUltimaTransacao = System.currentTimeMillis();
 		ultimaTransacaoExecutada = 0L;
 		pojoRegistro = construirNovoPojoUnico();
 		lerArquivoAceleradorInicializacao();		
