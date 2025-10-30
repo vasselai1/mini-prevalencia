@@ -1,8 +1,8 @@
 -----
 
-# 🌟 Mini-Prevalência: Persistência Transacional Simples e Rápida em Java 🌟
+# 🌟 Mini-Prevalência: Prevalência Transacional em Java 🌟
 
-O **Mini-Prevalência** é uma solução de persistência de objetos em Java inspirada no famoso padrão Prevayler (2001-2013). Ele oferece um mecanismo ACID (Atomicidade, Consistência, Isolamento e Durabilidade) onde o modelo de dados reside na memória (RAM) para acesso rápido, e todas as alterações são registradas de forma transacional em arquivos binários no sistema de arquivos.
+O **Mini-Prevalência** é uma solução de prevalência de objetos em Java inspirada no famoso padrão Prevayler (2001-2013). Ele oferece um mecanismo ACID (Atomicidade, Consistência, Isolamento e Durabilidade) onde o modelo de dados reside na memória (RAM) para acesso rápido, e todas as alterações são registradas de forma transacional em arquivos binários no sistema de arquivos.
 
 Este projeto é notável por sua simplicidade, sendo contido em uma única classe, ideal para ser copiado e integrado rapidamente em qualquer projeto Java.
 
@@ -10,9 +10,9 @@ Este projeto é notável por sua simplicidade, sendo contido em uma única class
 
 ## ✨ Recursos Principais
 
-  * **Modelo de Persistência Prevayler-like:** O estado (modelo POJO) é mantido em **memória** para consultas ultra-rápidas. Todas as modificações são transações que são serializadas e gravadas em **disco** como um log de operações.
+  * **Modelo de Prevalência Prevayler-like:** O estado (modelo POJO) é mantido em **memória** para consultas ultra-rápidas. Todas as modificações são transações que são serializadas e gravadas em **disco** como um log de operações.
   * **Transações ACID:** O estado só é alterado dentro de um bloco sincronizado (`synchronized (pojoRegistro)`), garantindo **Atomicidade**, **Consistência** e **Isolamento**. A gravação em disco garante a **Durabilidade**.
-  * **Serialização Java Padrão:** Utiliza `java.io.ObjectOutputStream` e `java.io.ObjectInputStream` para persistir o modelo e as transações, resultando em arquivos binários (`.bin`).
+  * **Serialização Java Padrão:** Utiliza `java.io.ObjectOutputStream` e `java.io.ObjectInputStream` para gravar o modelo e as transações, resultando em arquivos binários (`.bin`).
   * **Reconstrução de Estado Rápida:** O sistema é capaz de reconstruir o estado da memória a partir do **Arquivo Acelerador** (snapshot) e reexecutar apenas as transações subsequentes.
   * **Modo Primário e Réplica:**
       * **Primário:** Permite consultas e executa transações (gravação).
@@ -63,7 +63,7 @@ ou
 import br.tec.mboi.api.MiniPrevalencia;
 import br.tec.mboi.api.MiniPrevalencia.Configurador;
 
-// Diretório onde os arquivos de persistência serão salvos
+// Diretório onde os arquivos de prevalência serão salvos
 private static final String DIRETORIO = System.getProperty("user.home") + "/meu_projeto_dados";
 
 Configurador conf = new Configurador() {
@@ -175,7 +175,7 @@ O fluxo de trabalho envolve três componentes principais: o **Modelo (POJO)**, a
 
 ### 1\. Modelo (POJO)
 
-Deve implementar `Serializable` e ser o objeto de estado único que será persistido.
+Deve implementar `Serializable` e ser o objeto único de estado que será gravado.
 
 ```java
 // testes.entidades.auxbrasil.AuxilioBrasil
