@@ -106,6 +106,16 @@ public interface TransacaoComRetorno <R, T extends Serializable, E extends Throw
     R executar(T pojoRegistro);
 }
 ```
+ou
+```java
+public interface TransacaoSemRetorno <T extends Serializable, E extends Throwable> extends Transacao<T, E>, Serializable {
+    // 1. Opcional: Lançar Exception se a execução for inválida (sem causar rollback).
+    void validar(T pojoRegistro) throws E;
+    
+    // 2. Obrigatório: Atualizar o estado do pojoRegistro.
+    void executar(T pojoRegistro);
+}
+```
 
 ### 2\. Consulta (Apenas Leitura)
 
@@ -114,6 +124,36 @@ Usada para ler o estado do modelo. **Cuidado:** Leituras aqui são mais rápidas
 ```java
 public interface Consulta<R, T extends Serializable> {
     R executar(T pojoUnico);
+}
+```
+
+### 3\. Transação com Retorno (Para Leitura Limpa e Consistente)
+
+A interface `TransacaoComRetorno` foi criada para alterar o modelo e retornar dados, mas também é ideal para operações de leitura (consultas) que precisam garantir a consistência total dos dados.
+
+Ao ser executada via `prevalencia.executar(transacao)`, o método `executar(T pojoRegistro)` é executado **dentro do bloco sincronizado** do modelo (POJO). Isso garante que os dados acessados estejam no estado consistente e que a leitura seja isolada de transações de escrita concorrentes, caracterizando uma **Leitura Limpa (Clean Read)**.
+
+**Exemplo de Consulta (Leitura) Usando `TransacaoComRetorno`:**
+
+```java
+import br.tec.mboi.api.MiniPrevalencia.TransacaoComRetorno;
+import testes.entidades.auxbrasil.AuxilioBrasil;
+import testes.exceptions.ExemploException;
+
+// Transação de leitura para contar beneficiários (usa o bloco sincronizado para garantir consistência)
+public class ContarBeneficiados implements TransacaoComRetorno<Integer, AuxilioBrasil, ExemploException> {
+    
+    @Override
+    public void validar(AuxilioBrasil pojoRegistro) throws ExemploException {
+        //nada aqui!
+    }
+
+    @Override
+    public Integer executar(AuxilioBrasil pojoRegistro) {
+        // O código aqui é executado de forma síncrona, garantindo a leitura limpa/consistente.
+		// Também poderia alterar dados aqui
+        return pojoRegistro.getBeneficios().size();
+    }
 }
 ```
 
