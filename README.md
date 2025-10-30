@@ -1,6 +1,6 @@
 -----
 
-# 🌟 Mini-Prevalência: Prevalência Transacional em Java 🌟
+# 🌟 Mini-Prevalência: Prevalência ACID em Java 🌟
 
 O **Mini-Prevalência** é uma solução de prevalência de objetos em Java inspirada no famoso padrão Prevayler (2001-2013). Ele oferece um mecanismo ACID (Atomicidade, Consistência, Isolamento e Durabilidade) onde o modelo de dados reside na memória (RAM) para acesso rápido, e todas as alterações são registradas de forma transacional em arquivos binários no sistema de arquivos.
 
