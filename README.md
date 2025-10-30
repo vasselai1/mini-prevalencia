@@ -294,7 +294,7 @@ Map<Cidade, Double> totalPorCidade = prevalencia.executar(new TotalizarValoresBe
 
 ## ⚠️ Observações Importantes
 
-  * **transação:** Nunca modifique o estado do seu modelo fora das transações! É tentador fazer um simples set em um atributo, mas isso quebra a prevalência, se precisar apenas para exibição ative RetornoProjegidoPorCopia.
+  * **Transação:** Nunca modifique o estado do seu modelo fora das transações! É tentador fazer um simples set em um atributo, mas isso quebra a prevalência, se precisar apenas para exibição ative RetornoProjegidoPorCopia.
   * **Serialização:** O uso de `SerialVersionUID` e a compatibilidade das classes (POJOs e Transações) entre diferentes versões da aplicação são **críticos** para a correta reconstrução do estado.
   * **Transações:** Uma transação, após ser executada, **não deve ser alterada**. Para uma nova funcionalidade, crie uma nova classe de transação.  
   * **Transações Anônimas:** Classes de transação anônimas não podem ser usadas, pois a serialização requer uma classe nomeada e estática para reconstrução.
