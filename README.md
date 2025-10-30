@@ -55,7 +55,7 @@ MiniPrevalencia.configurar("/caminho/para/seus/dados", true, false, 10, true);
 // Configuração de Réplica (Somente Leitura):
 MiniPrevalencia.configurarReplica("/caminho/compartilhado/com/dados");
 
-// Obtendo a instância do seu Modelo:
+// Obtendo a instância de Prevalência do seu Modelo:
 MiniPrevalencia<SeuModeloPOJO> prevalencia = MiniPrevalencia.prevalecer(SeuModeloPOJO.class);
 ```
 ou
@@ -196,15 +196,6 @@ try {
 } catch (MiniPrevalencia.ExecucaoTransacaoException e) {
     // Captura exceção da execução (rollback já foi feito).
 }
-```
-
-**Obtendo a Instância:**
-
-Após a configuração, obtenha a instância do seu POJO (Modelo de Dados principal):
-
-```java
-// SeuModeloPOJO deve implementar Serializable e ter um construtor padrão.
-MiniPrevalencia<SeuModeloPOJO> prevalencia = MiniPrevalencia.prevalecer(SeuModeloPOJO.class);
 ```
 
 -----
