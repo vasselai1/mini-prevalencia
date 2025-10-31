@@ -142,7 +142,8 @@ import testes.exceptions.ExemploException;
 
 // Transação de leitura para contar beneficiários (usa o bloco sincronizado para garantir consistência)
 public class ContarBeneficiados implements TransacaoComRetorno<Integer, AuxilioBrasil, ExemploException> {
-    
+    private static final long serialVersionUID = 1L;
+	
     @Override
     public void validar(AuxilioBrasil pojoRegistro) throws ExemploException {
         //nada aqui!
@@ -167,7 +168,9 @@ public class SeuModeloPOJO implements Serializable {
 
 // 2. Classe de Transação de Exemplo
 public class AdicionarUsuario implements MiniPrevalencia.TransacaoSemRetorno<SeuModeloPOJO, RuntimeException> {
-    private final String nome; // Deve ser serializável
+	private static final long serialVersionUID = 1L;
+
+	private final String nome; // Deve ser serializável
 
     public AdicionarUsuario(String nome) {
         this.nome = nome;
@@ -233,6 +236,7 @@ A classe de transação **deve ser nomeada** (não pode ser anônima, pois preci
 // TransacaoSemRetorno (sem retorno de dados)
 public class NomearModeloExemplo implements MiniPrevalencia.TransacaoSemRetorno<ExemploModelo, ValidacaoCampoException> {
     private static final long serialVersionUID = 1L;
+
     private final String novoNome; 
 
     public NomearModeloExemplo(String novoNome) {
