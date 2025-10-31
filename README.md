@@ -296,9 +296,10 @@ Map<Cidade, Double> totalPorCidade = prevalencia.executar(new TotalizarValoresBe
 
   * **ACID:** Nunca modifique o estado do seu modelo fora das transações! É tentador fazer um simples set em um atributo, mas isso quebra a prevalência, se precisar apenas para exibição ative RetornoProjegidoPorCopia.
   * **Serialização:** O uso de `SerialVersionUID` e a compatibilidade das classes (POJOs e Transações) entre diferentes versões da aplicação são **críticos** para a correta reconstrução do estado.
-  * **Transações:** Uma transação, após ser executada, **não deve ser alterada**. Para uma nova funcionalidade, crie uma nova classe de transação.  
+  * **Transações:** Uma transação, após ser executada, **não deve ser alterada**. Para uma nova funcionalidade, crie uma nova classe de transação.
   * **Transações Anônimas:** Classes de transação anônimas não podem ser usadas, pois a serialização requer uma classe nomeada e estática para reconstrução.
   * **Memória RAM:** Lembre-se que a base inteira reside na memória RAM. Para bases com milhões de registros, certifique-se de que a Java Virtual Machine (JVM) tenha memória heap suficiente (ex: java -Xms4000m -Xmx6000m).
+  * **Bloco Transacional:** Deve ser leve e rápido sem depências externas, caso seja lenta, resultará em um gargalo generalizado nas gravações, bloqueando todas as transações subsequentes.
 -----
 
 
