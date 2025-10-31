@@ -215,7 +215,8 @@ public class AuxilioBrasil implements Serializable {
     
     private Map<String, Estado> estados = new HashMap<>();
     private List<Beneficio> beneficios = new ArrayList<>();
-    
+	private String nomeModelo;
+
     // Construtor padrão obrigatório.
     public AuxilioBrasil() { }
     
