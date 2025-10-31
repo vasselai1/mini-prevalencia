@@ -91,7 +91,7 @@ MiniPrevalencia.setConfigurador(conf);
 
 ## 🛠️ Interfaces Chave para o Desenvolvimento
 
-Seu modelo de domínio interage com a Mini-Prevalência através de interfaces funcionais:
+Seu modelo de domínio interage com a Mini-Prevalência através de interfaces:
 
 ### 1\. Transação (Atualiza o Modelo)
 
