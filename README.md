@@ -210,12 +210,12 @@ Deve implementar `Serializable` e ser o objeto único de estado que será gravad
 
 ```java
 // testes.entidades.auxbrasil.AuxilioBrasil
-public class AuxilioBrasil implements Serializable {
+public class ExemploModelo implements Serializable {
     private static final long serialVersionUID = 1L;
     
     private Map<String, Estado> estados = new HashMap<>();
     private List<Beneficio> beneficios = new ArrayList<>();
-	private String nomeModelo;
+	private String nome;
 
     // Construtor padrão obrigatório.
     public AuxilioBrasil() { }
