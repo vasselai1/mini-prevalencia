@@ -95,7 +95,7 @@ Seu modelo de domínio interage com a Mini-Prevalência através de interfaces:
 
 ### 1\. Transação (Atualiza o Modelo)
 
-Usada para todas as modificações. Implementa a lógica de validação e execução em um bloco sincronizado.
+Usada para todas as modificações. Implementa a lógica de validação do seu negócio (constraints) e execução (altera o estado do seu modelo), tudo isso será executado em um bloco sincronizado da prevalência.
 
 ```java
 public interface TransacaoComRetorno <R, T extends Serializable, E extends Throwable> extends Transacao<T, E>, Serializable {
