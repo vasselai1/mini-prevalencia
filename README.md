@@ -2,7 +2,7 @@
 
 # 🌟 Mini-Prevalência: ACID Java em uma classe 🌟
 
-O **Mini-Prevalência** é uma solução de prevalência de objetos em Java inspirada no famoso padrão Prevayler (2001-2013). Ele oferece um mecanismo ACID (Atomicidade, Consistência, Isolamento e Durabilidade) onde o modelo de dados reside na memória (RAM) para acesso rápido, e todas as alterações são registradas de forma transacional em arquivos binários no sistema de arquivos.
+A **Mini-Prevalência** é uma solução de prevalência de objetos em Java inspirada no famoso padrão Prevayler (2001-2013). Ele oferece um mecanismo ACID (Atomicidade, Consistência, Isolamento e Durabilidade) onde o modelo de dados reside na memória (RAM) para acesso rápido, e todas as alterações são registradas de forma transacional em arquivos binários no sistema de arquivos.
 
 Este projeto é notável por sua simplicidade, sendo contido em uma única classe, ideal para ser copiado e integrado rapidamente em qualquer projeto Java.
 
@@ -30,7 +30,7 @@ Este projeto é notável por sua simplicidade, sendo contido em uma única class
 
 ### Estrutura de Diretório
 
-Ao configurar, o Mini-Prevalência criará a seguinte estrutura de diretórios:
+Ao configurar, a Mini-Prevalência criará a seguinte estrutura de diretórios:
 
 ```
 [diretorio_gravacao]/
@@ -91,7 +91,7 @@ MiniPrevalencia.setConfigurador(conf);
 
 ## 🛠️ Interfaces Chave para o Desenvolvimento
 
-Seu modelo de domínio interage com o Mini-Prevalência através de interfaces funcionais:
+Seu modelo de domínio interage com a Mini-Prevalência através de interfaces funcionais:
 
 ### 1\. Transação (Atualiza o Modelo)
 
@@ -331,7 +331,7 @@ O tempo de execução foi medido no hardware modesto especificado:
 
 ### Conclusões do Desempenho
 
-1.  **Escala em RAM:** O teste confirma a capacidade do Mini-Prevalência de lidar com mais de **21 milhões de objetos** (1.4 GB de snapshot) em memória, desde que a JVM seja configurada com heap adequado.
+1.  **Escala em RAM:** O teste confirma a capacidade da Mini-Prevalência de lidar com mais de **21 milhões de objetos** (1.4 GB de snapshot) em memória, desde que a JVM seja configurada com heap adequado.
 2.  **Acesso em Milissegundos:** Uma vez carregado, o sistema oferece consultas complexas e de larga escala em **sub-segundos**, aproveitando a velocidade da memória RAM, que é a principal vantagem do padrão Prevayler.
 3.  **Gravação Rápida:** O mecanismo de serialização binária padrão do Java e a gravação transacional permitem uma alta taxa de ingestão de dados, atingindo **43.000 objetos/segundo** em transações em lote.
 
