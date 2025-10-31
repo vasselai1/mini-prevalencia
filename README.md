@@ -272,7 +272,7 @@ Usada para ler dados do modelo.
 
 ```java
 // testes.consultas.auxbrasil.TotalizarValoresBeneficiosPorCidade
-public class TotalizarValoresBeneficiosPorCidade implements Consulta<Map<Cidade, Double>, AuxilioBrasil> {
+public class TotalizarValoresBeneficiosPorCidade implements Consulta<Map<Cidade, Double>, ExemploModelo> {
 
     @Override
     public Map<Cidade, Double> executar(AuxilioBrasil pojoUnico) {
