@@ -234,7 +234,7 @@ public class ExemploModelo implements Serializable {
 
 ### 2\. Transação (Para Escrita)
 
-A classe de transação **deve ser nomeada** (não pode ser anônima, pois precisa ser serializada) e conter todos os dados necessários para a modificação.
+A classe de transação **deve ser nomeada** (não pode ser classe anônima, pois precisa ser serializada e desserializada) e conter todos os dados necessários para a modificação.
 
 ```java
 // TransacaoSemRetorno (sem retorno de dados)
