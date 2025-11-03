@@ -4,7 +4,9 @@
 
 A **Mini-Prevalência** é uma solução de prevalência de objetos em Java inspirada no famoso padrão e implementação Prevayler (2001-2013). Ele oferece um mecanismo ACID (Atomicidade, Consistência, Isolamento e Durabilidade) onde o modelo de dados reside na memória (RAM) para acesso rápido, e todas as alterações são registradas de forma transacional em arquivos binários no sistema de arquivos.
 
-Este projeto é notável por sua simplicidade, sendo contido em uma única classe, ideal para ser copiado e integrado rapidamente em qualquer projeto Java.
+Este projeto é notável por sua simplicidade, sendo contido em uma única classe, ideal para ser copiado e integrado rapidamente em qualquer projeto Java. 
+
+Esqueça a complexidade do mapeamento Objeto-Relacional (ORM) e a frustração dos bancos de dados tradicionais. Com a Mini-Prevalência, você só precisa dominar a Orientação a Objetos. Seu modelo de dados é composto por objetos Java serializáveis, garantindo que o seu código reflita 100% o seu domínio, sem a camada de impedância relacional.
 
 -----
 
