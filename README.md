@@ -6,7 +6,8 @@ A **Mini-Prevalência** é uma solução de prevalência de objetos em Java insp
 
 Este projeto é notável por sua simplicidade, sendo contido em uma única classe, ideal para ser copiado e integrado rapidamente em qualquer projeto Java. 
 
-"### 🎯 Foco Total em Orientação a Objetos
+# 🎯 Foco Total em Orientação a Objetos
+
 Livre-se da complexidade do mapeamento Objeto-Relacional (ORM) e da necessidade constante de cache externo (como Redis) para compensar a lentidão dos bancos de dados tradicionais. Com a Mini-Prevalência, você só precisa dominar a Orientação a Objetos. Seu modelo de dados é 100% puro e serializável, eliminando a camada de impedância relacional e entregando performance nativa.
 
 -----
