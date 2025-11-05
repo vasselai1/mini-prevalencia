@@ -123,7 +123,7 @@ public interface TransacaoSemRetorno <T extends Serializable, E extends Throwabl
 
 ### 2\. Consulta (Apenas Leitura)
 
-Usada para ler o estado do modelo. **Cuidado:** Leituras aqui são mais rápidas, mas podem ser "sujas" (passar por reversão).
+Usada para ler o estado do modelo. **Cuidado:** Leituras aqui são mais rápidas, mas podem ser "sujas" (passar por reversão caso ocorra erro de IO ou bloco executar() da sua transação levante uma exception).
 
 ```java
 public interface Consulta<R, T extends Serializable> {
