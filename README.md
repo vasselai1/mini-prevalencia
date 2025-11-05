@@ -213,7 +213,7 @@ O fluxo de trabalho envolve três componentes principais: o **Modelo (POJO)**, a
 
 ### 1\. Modelo (POJO)
 
-Deve implementar `Serializable` e ser o objeto único de estado que será gravado.
+Deve implementar `Serializable` e ser o objeto único de estado que será gravado. Este será o ponto de acesso central ao seu modelo, só existirá uma instância dessa classe, por isso do construtor padrão, a pravalência se encarrega de controlar sua construção, demais composições/relacionamentos a instânciação deve ocorrer dentro de transações.
 
 ```java
 // testes.entidades.auxbrasil.AuxilioBrasil
