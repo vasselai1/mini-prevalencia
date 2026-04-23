@@ -311,6 +311,7 @@ Map<Cidade, Double> totalPorCidade = prevalencia.executar(new TotalizarValoresBe
   * **Bloco Transacional:** Deve ser leve e rápido sem depências externas, caso seja lento, resultará em um gargalo generalizado nas gravações, bloqueando todas as transações subsequentes.
   * **Acesso aos Dados:** Somente pela aplicação, não desenvolvi um utilitário de consultas externas. Como trabalho futuro penso em um utilitário com reflection e JoSQL estilo SquirelSQL. (Contribuições são bem vindas).
   * **Autoscaling Restrito:** Só pode haver uma instância primária (gravação), no entanto réplicas de leitura são irrestritas.
+  * **Dead Lock:** Não utilizar transações dentro de transações, cada transação deve ser auto-contida.
   * **Portabilidade:** A Mini-Prevalência foi desenhada com um *backend* de persistência desacoplado. Isso significa que, em vez de se limitar ao disco local, a arquitetura permite o **fácil porte** para qualquer meio que grave *bytes*. Já existe uma versão particular que utiliza o **Amazon S3** (ou qualquer *Object Storage*) como mecanismo de persistência, facilitando o uso em ambientes de **nuvem** e com alta disponibilidade.
 -----
 
