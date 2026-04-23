@@ -214,15 +214,15 @@ public class MiniPrevalencia <M extends Serializable> {
 	/**
 	 * Serial da ultima transação executada. 
 	 */
-	private Long ultimaTransacaoExecutada = 0L;
+	private volatile Long ultimaTransacaoExecutada = 0L;
 	/**
 	 * Serial da ultima transação internalizada pelo arquivo acelerador.
 	 */
-	private Long ultimaTransacaoAcelerada = 0L;
+	private volatile Long ultimaTransacaoAcelerada = 0L;
 	/**
 	 * Lista de observadores registrados.
 	 */
-	private HashSet<Observador<M>> observadores = new HashSet<Observador<M>>();
+	private CopyOnWriteArraySet<Observador<M>> observadores = new CopyOnWriteArraySet<Observador<M>>();
 	/**
 	 * Logger para operações executadas por threads, demais exceptions são apenas lançadas.
 	 */
@@ -230,11 +230,11 @@ public class MiniPrevalencia <M extends Serializable> {
 	/**
 	 * Indicador de solicitação de finalização;
 	 */
-	private boolean finalizar = false;
+	private volatile boolean finalizar = false;
 	/**
 	 * Indica quando a instância está executando transações para carregar o modelo, com objetivo de impedir operações.
 	 */
-	private boolean inicializando = false;	
+	private volatile boolean inicializando = false;	
 	/**
 	 * Momento de inicialização ou ultima transação.
 	 */
